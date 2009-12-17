@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /
+
+# Check for valid cookie, if valid, do no further checking
+RewriteCond ${cfeacookiecheck:%{REQUEST_URI}c%%c%{HTTP_COOKIE}} ^allowed
+RewriteRule (.*) - [L]
+
+# Do authentication
+RewriteCond ${cfeacookieauth:%{REQUEST_URI}c%%c%{HTTP_COOKIE}} ^(cfea_auth.*)
+RewriteRule (.*) %{REQUEST_URI} [CO=cfea_auth:%1:%{HTTP_HOST}:43200,R,L]
+RewriteRule (.*) /wp-login.php?cfea_auth=%{REQUEST_URI} [QSA,R,L]
