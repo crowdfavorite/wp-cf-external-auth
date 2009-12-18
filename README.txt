@@ -22,7 +22,7 @@ The plugin can be modified in a few ways:
 
 - Install this plugin like you would any other plugin.
 - Copy the perl files in the plugin folder to new names without the `-dist` on them.
-- Modify `cfea_cookieauth.pl` and replace `_server-name_` with the server name of the server, and add in the WordPress subfolder if necessary.
+- If WordPress is being run out of a subdirectory, update the url in `cfea_cookieauth.pl` accordingly.
 
 ### Apache
 

@@ -5,7 +5,7 @@ $| = 1;
 
 while (<STDIN>) {
 	chomp($_);
-	($url, $host, $cookiestring) = split(/c%%c/, $_, 2);
+	($url, $host, $cookiestring) = split(/c%%c/, $_, 3);
 	@parts = split(/\//, $url);
 	my $response = get 'http://'.$host.'/?cfea_check_user=true&cfea_request_uri=/'.@parts[1].'/'.@parts[2].'/'.@parts[3].'/&cfea_cookie_val='.$cookiestring;
 	
