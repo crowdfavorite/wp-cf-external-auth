@@ -143,7 +143,6 @@ define('CFEA_AUTH_SALT',md5($_SERVER['SERVER_NAME']));
 	 * @return void
 	 */
 	function cfea_handle_logout() {
-		ep('logging out');
 		setcookie('cfea_auth', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
 	}
 	add_action('wp_logout', 'cfea_handle_logout');
