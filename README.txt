@@ -22,7 +22,7 @@ The plugin can be modified in a few ways:
 
 - Install this plugin like you would any other plugin.
 - Copy the perl files in the plugin folder to new names without the `-dist` on them.
-- Modify `cfea_cookieauth.pl` and replace `_server-name_` with the server name of the server, and add in the WordPress subfolder if necessary
+- Modify `cfea_cookieauth.pl` and replace `_server-name_` with the server name of the server, and add in the WordPress subfolder if necessary.
 
 ### Apache
 
@@ -34,12 +34,14 @@ Enable the RewriteMap in the vhosts file by adding the following code INSIDE the
 	RewriteEngine On
 	RewriteMap cfeacookiecheck prg:/_path_/_to_/wp-content/mu-plugins/cf-external-auth/cfea_cookiecheck.pl
 	RewriteMap cfeacookieauth prg:/_path_/_to_/oxfordclub/wp-content/mu-plugins/cf-external-auth/cfea_cookieauth.pl
+
+**Application Note:** 	Apache doesn't call these files multiple times, they're unbuffered connections, persistent connections. Because of this any changes made to these files after they've been loaded by Apache requires Apache to be restarted.
 			
-Some systems my need a RewriteLock file, depending upon Apache's config. Add one if one is not defined elsewhere in the config. Add this code OUTSIDE of the VirtualHost delcaration.
+Some systems my need a RewriteLock file, depending upon Apache's config. Add one if one is not defined elsewhere in the config. Add this code OUTSIDE of the VirtualHost delcaration. *This may require contacting the web host to get the configuration updated*.
 
 	RewriteLock /tmp/rewrite_lock
 			
-Restart Apache.
+Restart Apache to load the configuration.
 
 ### File Structure
 
