@@ -38,3 +38,15 @@ Some systems my need a RewriteLock file, depending upon Apache's config. Add one
 	RewriteLock /tmp/rewrite_lock
 			
 Restart Apache.
+
+### File Structure
+
+The plugin requires that the files be in a 3 tier organization structure. THIS IS MANDATORY!
+
+- ie: `/container/group/edition/[...files-here...]`
+- `container` is the base level where you'll put the new .htaccess file (as noted below)
+- `group` is used to create groupings of files.
+- `edition` is for the individual group is stored.
+- Examples:
+ 	- `/downloads/software/software-name/software-version1.zip,software-version2.zip,...`
+	- `/publications/publication-name/pubication-year/publication-may.pdf,publication-april.pdf,...`
