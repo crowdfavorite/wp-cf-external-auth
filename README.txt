@@ -20,7 +20,9 @@ The plugin can be modified in a few ways:
 
 ### WordPress
 
-Install this plugin like you would any other plugin. If you don't know how to do that then the rest of this configuration is beyond your means and you should consult with someone who knows more than you do.
+- Install this plugin like you would any other plugin.
+- Copy the perl files in the plugin folder to new names without the `-dist` on them.
+- Modify `cfea_cookieauth.pl` and replace `_server-name_` with the server name of the server, and add in the WordPress subfolder if necessary
 
 ### Apache
 
